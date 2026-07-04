@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Products</title>
+</head>
+<body>
+
+<h2>Bu mening saytim</h2>
+
+{% for dilshodjon in products %}
+
+<p><strong>ID:</strong> {{ dilshodjon.id }}</p>
+
+<p>
+    <strong>Title:</strong>
+    <a href="{% url 'detail' dilshodjon.pk %}">
+        {{ dilshodjon.title }}
+    </a>
+</p>
+
+<p><strong>Price:</strong> {{ dilshodjon.price }} $</p>
+
+<p><strong>Description:</strong> {{ dilshodjon.description }}</p>
+
+<p><strong>Created at:</strong> {{ dilshodjon.created_at }}</p>
+
+<hr>
+
+{% empty %}
+
+<p>Hozircha mahsulotlar mavjud emas.</p>
+
+{% endfor %}
+
+</body>
+</html>
